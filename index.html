@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Puzzle Master - Relaxing Jigsaw Game</title>
+<title>Puzzle Memories</title>
 
-<meta name="description" content="Relax with beautiful jigsaw puzzles, daily challenges and collectible rewards.">
+<meta name="description" content="Relax with beautiful jigsaw puzzles and exciting challenges.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <style>
 
@@ -16,169 +18,387 @@ padding:0;
 box-sizing:border-box;
 }
 
-body{
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-background:#f6f7fb;
-color:#1d1d1f;
-line-height:1.6;
+html{
+scroll-behavior:smooth;
 }
 
-a{
-text-decoration:none;
-color:inherit;
+body{
+
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+background:
+radial-gradient(circle at top,#6EA8FF 0%,#7D8CFF 18%,#ECEFF9 60%,#F8F9FC 100%);
+color:#1b1b1f;
+overflow-x:hidden;
 }
 
 .container{
-max-width:1200px;
+
+max-width:1250px;
 margin:auto;
-padding:40px 25px;
+padding:30px;
 }
 
 .hero{
 
+min-height:100vh;
+
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:80px;
-padding:80px 0;
+
+gap:70px;
 flex-wrap:wrap;
 }
 
-.hero-text{
+.left{
+
 flex:1;
-min-width:300px;
+min-width:330px;
 }
 
-.hero-text h1{
+.badge{
 
-font-size:64px;
-line-height:1;
+display:inline-block;
+padding:8px 18px;
+
+border-radius:100px;
+
+background:rgba(255,255,255,.45);
+backdrop-filter:blur(15px);
+
+font-weight:700;
+
+margin-bottom:30px;
+}
+
+h1{
+
+font-size:clamp(58px,8vw,92px);
+
+line-height:.95;
+
 margin-bottom:25px;
-font-weight:800;
+
+font-weight:900;
 }
 
-.hero-text p{
+.subtitle{
 
-font-size:22px;
-color:#555;
-max-width:600px;
-margin-bottom:40px;
+font-size:24px;
+
+color:#45474d;
+
+line-height:1.6;
+
+max-width:650px;
+
+margin-bottom:45px;
 }
 
 .buttons{
 
 display:flex;
+
 gap:18px;
+
 flex-wrap:wrap;
 }
 
 .button{
 
 padding:18px 34px;
+
 border-radius:18px;
+
 font-weight:700;
+
 transition:.25s;
+
+cursor:pointer;
 }
 
 .primary{
 
 background:#007AFF;
+
 color:white;
+
+box-shadow:0 15px 35px rgba(0,122,255,.35);
 }
 
 .primary:hover{
 
-background:#0064d8;
+transform:translateY(-3px);
+
+box-shadow:0 25px 45px rgba(0,122,255,.45);
 }
 
 .secondary{
 
 background:white;
-border:1px solid #ddd;
+
+color:#222;
 }
 
 .secondary:hover{
 
-background:#f0f0f0;
+transform:translateY(-3px);
+}
+
+.right{
+
+flex:0 0 420px;
+
+display:flex;
+
+justify-content:center;
 }
 
 .phone{
 
-flex:0 0 340px;
-display:flex;
-justify-content:center;
+width:330px;
+
+aspect-ratio:9/19.5;
+
+border-radius:46px;
+
+background:
+
+linear-gradient(145deg,#ffffff,#edf2ff);
+
+padding:18px;
+
+box-shadow:
+
+0 35px 80px rgba(0,0,0,.20);
+
+position:relative;
 }
 
-.phone img{
+.phone::before{
 
-width:100%;
-max-width:320px;
-border-radius:38px;
-box-shadow:0 35px 70px rgba(0,0,0,.18);
+content:"";
+
+position:absolute;
+
+top:18px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:110px;
+
+height:30px;
+
+border-radius:100px;
+
+background:#000;
+}
+
+.screen{
+
+height:100%;
+
+border-radius:32px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+gap:30px;
+
+background:
+
+linear-gradient(180deg,#6ea8ff,#7f7fff,#8b6dff);
+}
+
+.icon{
+
+width:120px;
+height:120px;
+
+border-radius:30px;
+
+background:white;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:62px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.18);
+}
+
+.screen h2{
+
+color:white;
+
+font-size:38px;
+}
+
+.screen p{
+
+color:white;
+
+opacity:.9;
+
+text-align:center;
+
+padding:0 30px;
 }
 
 .section{
 
-padding:70px 0;
+padding:120px 0;
 }
 
 .section-title{
 
-font-size:42px;
-font-weight:800;
-margin-bottom:45px;
+font-size:54px;
+
 text-align:center;
+
+margin-bottom:70px;
+
+font-weight:900;
 }
 
-.features{
+.grid{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:28px;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
 }
 
 .card{
 
-background:white;
 padding:35px;
-border-radius:26px;
-box-shadow:0 15px 40px rgba(0,0,0,.06);
+
+border-radius:28px;
+
+background:rgba(255,255,255,.60);
+
+backdrop-filter:blur(18px);
+
+box-shadow:0 18px 40px rgba(0,0,0,.08);
+
+transition:.25s;
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+}
+
+.card span{
+
+font-size:38px;
+
+display:block;
+
+margin-bottom:18px;
 }
 
 .card h3{
 
-margin-bottom:12px;
-font-size:22px;
+margin-bottom:15px;
+
+font-size:26px;
 }
 
 .card p{
 
-color:#666;
+color:#555;
+
+line-height:1.6;
+}
+
+.challenge{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+gap:20px;
+}
+
+.level{
+
+padding:28px;
+
+border-radius:22px;
+
+background:white;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,.07);
+}
+
+.level strong{
+
+display:block;
+
+font-size:22px;
+
+margin-bottom:12px;
 }
 
 .gallery{
 
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
+
+gap:30px;
 }
 
-.gallery img{
+.placeholder{
 
-width:100%;
-border-radius:24px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+aspect-ratio:9/19;
+
+border-radius:30px;
+
+background:linear-gradient(135deg,#f8f8f8,#e9eef8);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+flex-direction:column;
+
+color:#888;
+
+font-size:22px;
+
+border:2px dashed #cfd8ea;
 }
 
 footer{
 
-padding:70px 25px;
+padding:70px 0;
+
 text-align:center;
+
 color:#666;
-font-size:15px;
 }
 
 footer a{
+
+text-decoration:none;
+
+margin:0 15px;
 
 color:#007AFF;
 }
@@ -188,11 +408,8 @@ color:#007AFF;
 .hero{
 
 text-align:center;
-}
 
-.hero-text h1{
-
-font-size:48px;
+justify-content:center;
 }
 
 .buttons{
@@ -203,7 +420,6 @@ justify-content:center;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -212,19 +428,23 @@ justify-content:center;
 
 <section class="hero">
 
-<div class="hero-text">
+<div class="left">
 
-<h1>Puzzle Master</h1>
+<div class="badge">
+🧩 Relax • Collect • Challenge
+</div>
 
-<p>
-Relax with hundreds of beautiful jigsaw puzzles, unlock exciting challenges,
-earn trophies and enjoy a peaceful puzzle experience at your own pace.
+<h1>Puzzle<br>Memories</h1>
+
+<p class="subtitle">
+A beautiful jigsaw puzzle experience with handcrafted artwork,
+daily challenges, collectible trophies and relaxing gameplay.
 </p>
 
 <div class="buttons">
 
 <a class="button primary" href="#">
-Download on the App Store
+ Download on the App Store
 </a>
 
 <a class="button secondary" href="support.html">
@@ -235,9 +455,25 @@ Support
 
 </div>
 
+<div class="right">
+
 <div class="phone">
 
-<img src="images/app-preview.png" alt="Puzzle Master">
+<div class="screen">
+
+<div class="icon">
+🧩
+</div>
+
+<h2>Puzzle<br>Memories</h2>
+
+<p>
+Coming Soon
+</p>
+
+</div>
+
+</div>
 
 </div>
 
@@ -246,37 +482,70 @@ Support
 <section class="section">
 
 <h2 class="section-title">
-Why You'll Love It
+Why you'll love it
 </h2>
 
-<div class="features">
+<div class="grid">
 
 <div class="card">
-<h3>🧩 Hundreds of puzzles</h3>
-<p>
-Discover a growing collection of beautiful images to complete.
-</p>
+<span>🧩</span>
+<h3>Hundreds of puzzles</h3>
+<p>Beautiful handcrafted images with multiple difficulty levels.</p>
 </div>
 
 <div class="card">
-<h3>🏆 Daily Challenges</h3>
-<p>
-Complete challenge packs and unlock exclusive rewards.
-</p>
+<span>🏆</span>
+<h3>Daily Challenges</h3>
+<p>Complete packs and unlock exclusive rewards.</p>
 </div>
 
 <div class="card">
-<h3>⭐ Collect Trophies</h3>
-<p>
-Progress through multiple difficulty levels and earn unique trophies.
-</p>
+<span>⭐</span>
+<h3>Achievements</h3>
+<p>Collect trophies, seals and reach the highest league.</p>
 </div>
 
 <div class="card">
-<h3>🌙 Relaxing Experience</h3>
-<p>
-No timers. No pressure. Just enjoy solving puzzles whenever you want.
-</p>
+<span>🌙</span>
+<h3>Relaxing</h3>
+<p>No timers. No pressure. Just pure puzzle fun.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+Challenge Leagues
+</h2>
+
+<div class="challenge">
+
+<div class="level">
+<strong>⭐ Classic</strong>
+25 relaxing puzzles
+</div>
+
+<div class="level">
+<strong>⭐⭐ Expert</strong>
+For experienced players
+</div>
+
+<div class="level">
+<strong>⭐⭐⭐ Master</strong>
+A true challenge
+</div>
+
+<div class="level">
+<strong>⭐⭐⭐⭐ Legend</strong>
+Only the best succeed
+</div>
+
+<div class="level">
+<strong>⭐⭐⭐⭐⭐ Impossible</strong>
+Ultimate achievement
 </div>
 
 </div>
@@ -291,38 +560,40 @@ Screenshots
 
 <div class="gallery">
 
-<img src="images/screen1.jpg">
+<div class="placeholder">
+📱
+Gameplay Preview
+</div>
 
-<img src="images/screen2.jpg">
+<div class="placeholder">
+🏆
+Challenges
+</div>
 
-<img src="images/screen3.jpg">
+<div class="placeholder">
+🧩
+Puzzle Collection
+</div>
 
 </div>
 
 </section>
 
-</div>
-
 <footer>
 
 <p>
-
-© 2026 Puzzle Master
-
+© 2026 Puzzle Memories
 </p>
 
 <br>
 
-<p>
-
 <a href="privacy.html">Privacy Policy</a>
-&nbsp;&nbsp;•&nbsp;&nbsp;
-<a href="support.html">Support</a>
 
-</p>
+<a href="support.html">Support</a>
 
 </footer>
 
-</body>
+</div>
 
+</body>
 </html>
