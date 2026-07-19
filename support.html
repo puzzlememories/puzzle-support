@@ -1,203 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Puzzle Memories - Support</title>
+<meta name="description" content="Support page for Puzzle Memories.">
 
 <style>
+:root{
+  --ink:#17202a;
+  --muted:#5d6874;
+  --paper:#fffaf0;
+  --panel:#ffffff;
+  --teal:#2f9f91;
+  --blue:#2f72d6;
+  --coral:#e9684a;
+  --amber:#f2b84b;
+  --line:rgba(23,32,42,.12);
+  --shadow:0 18px 44px rgba(23,32,42,.09);
+}
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  background:
+    linear-gradient(90deg,rgba(23,32,42,.045) 1px,transparent 1px),
+    linear-gradient(0deg,rgba(23,32,42,.045) 1px,transparent 1px),
+    radial-gradient(circle at 12% 4%,rgba(242,184,75,.22),transparent 28%),
+    radial-gradient(circle at 86% 12%,rgba(47,159,145,.18),transparent 30%),
+    linear-gradient(180deg,var(--paper),#eef6f3 62%,#fffaf0);
+  background-size:84px 84px,84px 84px,auto,auto,auto;
+  color:var(--ink);
+  line-height:1.7;
+}
 
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-
-background:linear-gradient(180deg,#edf4ff,#ffffff);
-
-color:#222;
+a{
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:850;
 }
 
 .container{
-
-max-width:900px;
-
-margin:auto;
-
-padding:60px 25px;
+  width:min(980px,calc(100% - 40px));
+  margin:auto;
+  padding:64px 0;
 }
 
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(255,255,255,.72);
+  color:#31404d;
+  font-size:14px;
+  font-weight:850;
+  box-shadow:0 10px 24px rgba(23,32,42,.08);
+}
+
+.badge-mark{
+  width:18px;
+  height:18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:2px;
+}
+
+.badge-mark i{
+  display:block;
+  border-radius:3px;
+}
+
+.badge-mark i:nth-child(1){background:var(--teal);}
+.badge-mark i:nth-child(2){background:var(--amber);}
+.badge-mark i:nth-child(3){background:var(--coral);}
+.badge-mark i:nth-child(4){background:var(--blue);}
+
 h1{
-
-font-size:58px;
-
-margin-bottom:20px;
-
-font-weight:900;
+  margin-top:28px;
+  font-size:clamp(44px,7vw,72px);
+  line-height:1;
+  font-weight:950;
+  letter-spacing:0;
 }
 
 .subtitle{
-
-font-size:22px;
-
-color:#666;
-
-margin-bottom:50px;
+  max-width:720px;
+  margin-top:18px;
+  margin-bottom:38px;
+  color:var(--muted);
+  font-size:20px;
 }
 
-.card{
-
-background:white;
-
-padding:35px;
-
-border-radius:24px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-margin-bottom:30px;
+.hero-card{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:22px;
+  align-items:center;
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(255,255,255,.82);
+  box-shadow:var(--shadow);
+  margin-bottom:18px;
 }
 
-.card h2{
-
-margin-bottom:18px;
-
-font-size:28px;
-}
-
-.card p{
-
-line-height:1.7;
-
-color:#555;
-}
-
-.card ul{
-
-margin-top:15px;
-
-padding-left:20px;
-
-line-height:2;
+.hero-card p{
+  color:var(--muted);
 }
 
 .email{
-
-display:inline-block;
-
-margin-top:20px;
-
-padding:16px 26px;
-
-border-radius:16px;
-
-background:#007AFF;
-
-color:white;
-
-text-decoration:none;
-
-font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  padding:0 22px;
+  border-radius:8px;
+  background:var(--ink);
+  color:white;
+  white-space:nowrap;
+  box-shadow:0 16px 34px rgba(23,32,42,.18);
 }
 
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+
+.card{
+  background:rgba(255,255,255,.82);
+  padding:26px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  box-shadow:var(--shadow);
+}
+
+.card h2{
+  margin-bottom:14px;
+  font-size:25px;
+  line-height:1.15;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+.faq{
+  margin-top:14px;
+  display:grid;
+  gap:12px;
+}
+
+.faq-item{
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(255,255,255,.62);
+}
+
+.faq-item h3{
+  font-size:18px;
+  line-height:1.25;
+  margin-bottom:6px;
+}
+
+.faq-item p{
+  font-size:15px;
+}
+
+ul{
+  margin-top:12px;
+  padding-left:22px;
+  color:var(--muted);
+}
+
+li{
+  margin-bottom:8px;
+}
+
+.info-list{
+  display:grid;
+  gap:10px;
+  margin-top:12px;
+}
+
+.info-row{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.info-row:last-child{
+  border-bottom:0;
+}
+
+.info-row strong{
+  color:var(--ink);
+}
+
+.tile-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-top:20px;
+}
+
+.tile-strip i{
+  display:block;
+  height:48px;
+  border-radius:8px;
+  background:white;
+  border:1px solid var(--line);
+  box-shadow:0 10px 24px rgba(23,32,42,.06);
+}
+
+.tile-strip i:nth-child(1){border-top:5px solid var(--teal);}
+.tile-strip i:nth-child(2){border-top:5px solid var(--amber);}
+.tile-strip i:nth-child(3){border-top:5px solid var(--coral);}
+.tile-strip i:nth-child(4){border-top:5px solid var(--blue);}
+
 footer{
-
-text-align:center;
-
-padding:50px;
-
-color:#777;
+  width:min(980px,calc(100% - 40px));
+  margin:auto;
+  padding:0 0 64px;
+  text-align:center;
+  color:var(--muted);
 }
 
 footer a{
-
-margin:0 15px;
-
-text-decoration:none;
-
-color:#007AFF;
+  display:inline-flex;
+  margin:0 10px;
 }
 
-</style>
+@media(max-width:760px){
+  .hero-card,
+  .grid{
+    grid-template-columns:1fr;
+  }
 
+  .email{
+    width:100%;
+  }
+
+  .info-row{
+    grid-template-columns:1fr;
+    gap:2px;
+  }
+}
+
+@media(max-width:620px){
+  .container{
+    width:min(100% - 24px,980px);
+    padding:40px 0;
+  }
+
+  .hero-card,
+  .card{
+    padding:22px;
+  }
+}
+</style>
 </head>
 
 <body>
+<main class="container">
+  <div class="badge">
+    <span class="badge-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    Puzzle Memories
+  </div>
 
-<div class="container">
+  <h1>Support</h1>
 
-<h1>Support</h1>
+  <p class="subtitle">
+    We're here to help you enjoy Puzzle Memories. Send a message if something feels stuck, missing or confusing.
+  </p>
 
-<p class="subtitle">
-We're here to help you enjoy Puzzle Memories.
-</p>
+  <section class="hero-card">
+    <div>
+      <h2>Need help?</h2>
+      <p>
+        Tell us what happened, which device you use, and whether the issue appears in Slide, Jigsaw, Daily or Packs.
+        We usually reply within 48 hours.
+      </p>
+    </div>
 
-<div class="card">
+    <a class="email" href="mailto:laurent43800@gmail.com?subject=Puzzle%20Memories%20Support">laurent43800@gmail.com</a>
+  </section>
 
-<h2>Frequently Asked Questions</h2>
+  <section class="grid">
+    <article class="card">
+      <h2>Frequently asked questions</h2>
 
-<ul>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>How do I restore my purchases?</h3>
+          <p>Open the app settings, go to purchases, then tap Restore Purchases. Purchases are verified through the App Store.</p>
+        </div>
 
-<li>How do I restore my purchases?</li>
+        <div class="faq-item">
+          <h3>How do I transfer progress to another device?</h3>
+          <p>Use the same Apple ID with iCloud enabled. Puzzle Memories can sync eligible unlocks and in-game economy state with CloudKit.</p>
+        </div>
 
-<li>How do I transfer my progress to another device?</li>
+        <div class="faq-item">
+          <h3>How do Daily Challenges work?</h3>
+          <p>The daily puzzle changes with the calendar. Current month puzzles are available, and archives may require the related access option.</p>
+        </div>
 
-<li>How do Daily Challenges work?</li>
+        <div class="faq-item">
+          <h3>Can I play offline?</h3>
+          <p>Downloaded and bundled puzzles can be played offline. New daily puzzles or remote packs may need an internet connection first.</p>
+        </div>
 
-<li>Can I play offline?</li>
+        <div class="faq-item">
+          <h3>How do I report a bug?</h3>
+          <p>Email us with your device model, iOS version, app version, game mode and the steps that caused the issue.</p>
+        </div>
+      </div>
+    </article>
 
-<li>How do I report a bug?</li>
+    <article class="card">
+      <h2>Troubleshooting</h2>
+      <p>If a puzzle, pack or purchase does not appear as expected, try these quick checks first.</p>
 
-</ul>
+      <ul>
+        <li>Confirm that your internet connection is active.</li>
+        <li>Open Settings in the app and restore purchases.</li>
+        <li>Use the Cloudflare update buttons if daily or pack images look outdated.</li>
+        <li>Restart the app after a purchase or restore operation.</li>
+        <li>Make sure iCloud is available if you expect progress to sync across devices.</li>
+      </ul>
 
-</div>
+      <div class="tile-strip" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </div>
+    </article>
 
-<div class="card">
+    <article class="card">
+      <h2>App information</h2>
+      <div class="info-list">
+        <div class="info-row">
+          <strong>Game</strong>
+          <span>Puzzle Memories</span>
+        </div>
+        <div class="info-row">
+          <strong>Platform</strong>
+          <span>iPhone and iPad</span>
+        </div>
+        <div class="info-row">
+          <strong>Version</strong>
+          <span>0.1</span>
+        </div>
+        <div class="info-row">
+          <strong>Support email</strong>
+          <span><a href="mailto:laurent43800@gmail.com">laurent43800@gmail.com</a></span>
+        </div>
+      </div>
+    </article>
 
-<h2>Need Help?</h2>
+    <article class="card">
+      <h2>Useful links</h2>
+      <p>These pages cover the basics for users and App Store review.</p>
 
-<p>
-If you experience any issue or have suggestions for improving the game,
-please contact us.
-We usually reply within 48 hours.
-</p>
-
-<a class="email" href="mailto:laurent43800@gmail.com">
-laurent43800@gmail.com
-</a>
-
-</div>
-
-<div class="card">
-
-<h2>App Information</h2>
-
-<p>
-
-<strong>Game:</strong> Puzzle Memories<br>
-<strong>Platform:</strong> iPhone & iPad<br>
-<strong>Latest Version:</strong> 1.0<br>
-
-</p>
-
-</div>
-
-</div>
+      <ul>
+        <li><a href="index.html">Home page</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </article>
+  </section>
+</main>
 
 <footer>
-
-<a href="index.html">Home</a>
-
-<a href="privacy.html">Privacy Policy</a>
-
+  <a href="index.html">Home</a>
+  <a href="privacy.html">Privacy Policy</a>
 </footer>
-
 </body>
-
 </html>
