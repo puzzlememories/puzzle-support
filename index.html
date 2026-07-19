@@ -6,594 +6,577 @@
 
 <title>Puzzle Memories</title>
 
-<meta name="description" content="Relax with beautiful jigsaw puzzles and exciting challenges.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="description" content="Relax with beautiful jigsaw puzzles, daily challenges, collectible trophies and calm gameplay.">
 
 <style>
+:root{
+  --ink:#17202a;
+  --muted:#5d6874;
+  --paper:#fffaf0;
+  --cream:#f7efe0;
+  --tile:#ffffff;
+  --teal:#2f9f91;
+  --blue:#2f72d6;
+  --coral:#e9684a;
+  --amber:#f2b84b;
+  --line:rgba(23,32,42,.12);
+  --shadow:0 24px 70px rgba(23,32,42,.14);
+}
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  background:
+    linear-gradient(90deg,rgba(23,32,42,.045) 1px,transparent 1px),
+    linear-gradient(0deg,rgba(23,32,42,.045) 1px,transparent 1px),
+    radial-gradient(circle at 15% 8%,rgba(242,184,75,.26),transparent 28%),
+    radial-gradient(circle at 84% 15%,rgba(47,159,145,.20),transparent 30%),
+    linear-gradient(180deg,var(--paper),#eef6f3 58%,#fffaf0);
+  background-size:84px 84px,84px 84px,auto,auto,auto;
+  color:var(--ink);
+  overflow-x:hidden;
+}
 
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-background:
-radial-gradient(circle at top,#6EA8FF 0%,#7D8CFF 18%,#ECEFF9 60%,#F8F9FC 100%);
-color:#1b1b1f;
-overflow-x:hidden;
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
 .container{
-
-max-width:1250px;
-margin:auto;
-padding:30px;
+  width:min(1180px,calc(100% - 40px));
+  margin:auto;
 }
 
 .hero{
-
-min-height:100vh;
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-gap:70px;
-flex-wrap:wrap;
-}
-
-.left{
-
-flex:1;
-min-width:330px;
+  min-height:96vh;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(300px,420px);
+  align-items:center;
+  gap:56px;
+  padding:54px 0 72px;
 }
 
 .badge{
-
-display:inline-block;
-padding:8px 18px;
-
-border-radius:100px;
-
-background:rgba(255,255,255,.45);
-backdrop-filter:blur(15px);
-
-font-weight:700;
-
-margin-bottom:30px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(255,255,255,.72);
+  color:#31404d;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:0;
+  box-shadow:0 10px 24px rgba(23,32,42,.08);
 }
 
+.badge-mark{
+  width:18px;
+  height:18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:2px;
+}
+
+.badge-mark i{
+  display:block;
+  border-radius:3px;
+}
+
+.badge-mark i:nth-child(1){background:var(--teal);}
+.badge-mark i:nth-child(2){background:var(--amber);}
+.badge-mark i:nth-child(3){background:var(--coral);}
+.badge-mark i:nth-child(4){background:var(--blue);}
+
 h1{
+  margin-top:28px;
+  font-size:clamp(58px,8vw,96px);
+  line-height:.94;
+  font-weight:950;
+  letter-spacing:0;
+}
 
-font-size:clamp(58px,8vw,92px);
-
-line-height:.95;
-
-margin-bottom:25px;
-
-font-weight:900;
+.title-piece{
+  color:var(--teal);
 }
 
 .subtitle{
-
-font-size:24px;
-
-color:#45474d;
-
-line-height:1.6;
-
-max-width:650px;
-
-margin-bottom:45px;
+  max-width:640px;
+  margin-top:28px;
+  color:var(--muted);
+  font-size:22px;
+  line-height:1.55;
 }
 
 .buttons{
-
-display:flex;
-
-gap:18px;
-
-flex-wrap:wrap;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:36px;
 }
 
 .button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:56px;
+  padding:0 24px;
+  border-radius:8px;
+  font-weight:850;
+  border:1px solid transparent;
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+}
 
-padding:18px 34px;
-
-border-radius:18px;
-
-font-weight:700;
-
-transition:.25s;
-
-cursor:pointer;
+.button:hover{
+  transform:translateY(-2px);
 }
 
 .primary{
-
-background:#007AFF;
-
-color:white;
-
-box-shadow:0 15px 35px rgba(0,122,255,.35);
-}
-
-.primary:hover{
-
-transform:translateY(-3px);
-
-box-shadow:0 25px 45px rgba(0,122,255,.45);
+  background:var(--ink);
+  color:white;
+  box-shadow:0 16px 34px rgba(23,32,42,.22);
 }
 
 .secondary{
-
-background:white;
-
-color:#222;
+  background:rgba(255,255,255,.76);
+  border-color:var(--line);
+  color:var(--ink);
 }
 
-.secondary:hover{
-
-transform:translateY(-3px);
+.hero-art{
+  position:relative;
+  isolation:isolate;
 }
 
-.right{
-
-flex:0 0 420px;
-
-display:flex;
-
-justify-content:center;
+.hero-art::before,
+.hero-art::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(255,255,255,.70);
+  box-shadow:0 18px 44px rgba(23,32,42,.10);
 }
 
-.phone{
-
-width:330px;
-
-aspect-ratio:9/19.5;
-
-border-radius:46px;
-
-background:
-
-linear-gradient(145deg,#ffffff,#edf2ff);
-
-padding:18px;
-
-box-shadow:
-
-0 35px 80px rgba(0,0,0,.20);
-
-position:relative;
+.hero-art::before{
+  width:96px;
+  height:96px;
+  left:-34px;
+  top:64px;
+  transform:rotate(-10deg);
 }
 
-.phone::before{
-
-content:"";
-
-position:absolute;
-
-top:18px;
-left:50%;
-
-transform:translateX(-50%);
-
-width:110px;
-
-height:30px;
-
-border-radius:100px;
-
-background:#000;
+.hero-art::after{
+  width:124px;
+  height:124px;
+  right:-28px;
+  bottom:80px;
+  transform:rotate(8deg);
 }
 
-.screen{
-
-height:100%;
-
-border-radius:32px;
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-justify-content:center;
-
-gap:30px;
-
-background:
-
-linear-gradient(180deg,#6ea8ff,#7f7fff,#8b6dff);
+.screenshot-frame{
+  position:relative;
+  margin-inline:auto;
+  width:min(100%,360px);
+  padding:12px;
+  border-radius:8px;
+  background:#111923;
+  box-shadow:var(--shadow);
 }
 
-.icon{
-
-width:120px;
-height:120px;
-
-border-radius:30px;
-
-background:white;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:62px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.18);
+.screenshot-frame::before{
+  content:"";
+  position:absolute;
+  top:14px;
+  left:50%;
+  width:92px;
+  height:22px;
+  border-radius:0 0 10px 10px;
+  transform:translateX(-50%);
+  background:#111923;
+  z-index:2;
 }
 
-.screen h2{
-
-color:white;
-
-font-size:38px;
-}
-
-.screen p{
-
-color:white;
-
-opacity:.9;
-
-text-align:center;
-
-padding:0 30px;
+.screenshot-frame img{
+  display:block;
+  width:100%;
+  aspect-ratio:1242/2688;
+  object-fit:cover;
+  border-radius:6px;
+  background:#dfe6ea;
 }
 
 .section{
-
-padding:120px 0;
+  padding:88px 0;
 }
 
 .section-title{
+  max-width:760px;
+  margin:0 auto 42px;
+  text-align:center;
+}
 
-font-size:54px;
+.section-title h2{
+  font-size:clamp(34px,5vw,54px);
+  line-height:1.05;
+  font-weight:950;
+  letter-spacing:0;
+}
 
-text-align:center;
-
-margin-bottom:70px;
-
-font-weight:900;
+.section-title p{
+  margin-top:14px;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.55;
 }
 
 .grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
 
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:30px;
+.card,
+.level,
+.shot{
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(255,255,255,.78);
+  box-shadow:0 16px 36px rgba(23,32,42,.08);
 }
 
 .card{
-
-padding:35px;
-
-border-radius:28px;
-
-background:rgba(255,255,255,.60);
-
-backdrop-filter:blur(18px);
-
-box-shadow:0 18px 40px rgba(0,0,0,.08);
-
-transition:.25s;
+  min-height:240px;
+  padding:24px;
+  position:relative;
+  overflow:hidden;
 }
 
-.card:hover{
-
-transform:translateY(-8px);
+.card::after{
+  content:"";
+  position:absolute;
+  right:22px;
+  bottom:22px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:var(--cream);
+  box-shadow:inset 0 0 0 1px var(--line);
 }
 
-.card span{
-
-font-size:38px;
-
-display:block;
-
-margin-bottom:18px;
+.card-mark{
+  width:42px;
+  height:42px;
+  border-radius:8px;
+  margin-bottom:22px;
+  box-shadow:inset 0 -10px 0 rgba(0,0,0,.08);
 }
+
+.card:nth-child(1) .card-mark{background:var(--teal);}
+.card:nth-child(2) .card-mark{background:var(--coral);}
+.card:nth-child(3) .card-mark{background:var(--amber);}
+.card:nth-child(4) .card-mark{background:var(--blue);}
 
 .card h3{
-
-margin-bottom:15px;
-
-font-size:26px;
+  font-size:22px;
+  margin-bottom:12px;
 }
 
 .card p{
-
-color:#555;
-
-line-height:1.6;
+  color:var(--muted);
+  line-height:1.55;
 }
 
 .challenge{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-
-gap:20px;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:14px;
 }
 
 .level{
+  padding:22px;
+}
 
-padding:28px;
-
-border-radius:22px;
-
-background:white;
-
-text-align:center;
-
-box-shadow:0 10px 25px rgba(0,0,0,.07);
+.level small{
+  display:block;
+  color:var(--muted);
+  font-weight:800;
+  margin-bottom:10px;
 }
 
 .level strong{
+  display:block;
+  font-size:22px;
+  margin-bottom:12px;
+}
 
-display:block;
-
-font-size:22px;
-
-margin-bottom:12px;
+.stars{
+  color:#b77911;
+  letter-spacing:0;
 }
 
 .gallery{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-gap:30px;
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr;
+  gap:16px;
 }
 
-.placeholder{
+.shot{
+  min-height:360px;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  overflow:hidden;
+}
 
-aspect-ratio:9/19;
+.shot h3{
+  font-size:22px;
+}
 
-border-radius:30px;
+.shot-image{
+  display:block;
+  width:100%;
+  aspect-ratio:1242/2688;
+  max-height:430px;
+  object-fit:cover;
+  object-position:top center;
+  border-radius:8px;
+  border:1px solid var(--line);
+  background:#dfe6ea;
+  box-shadow:0 14px 30px rgba(23,32,42,.10);
+}
 
-background:linear-gradient(135deg,#f8f8f8,#e9eef8);
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-flex-direction:column;
-
-color:#888;
-
-font-size:22px;
-
-border:2px dashed #cfd8ea;
+.shot p{
+  color:var(--muted);
+  line-height:1.5;
 }
 
 footer{
+  padding:52px 0 72px;
+  color:var(--muted);
+  text-align:center;
+}
 
-padding:70px 0;
-
-text-align:center;
-
-color:#666;
+footer p{
+  margin-bottom:16px;
 }
 
 footer a{
-
-text-decoration:none;
-
-margin:0 15px;
-
-color:#007AFF;
+  display:inline-flex;
+  margin:0 10px;
+  color:var(--blue);
+  font-weight:800;
 }
 
-@media(max-width:900px){
+@media(max-width:980px){
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+    min-height:auto;
+  }
 
-.hero{
+  .subtitle{
+    margin-left:auto;
+    margin-right:auto;
+  }
 
-text-align:center;
+  .buttons{
+    justify-content:center;
+  }
 
-justify-content:center;
+  .grid,
+  .challenge,
+  .gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 }
 
-.buttons{
+@media(max-width:620px){
+  .container{
+    width:min(100% - 24px,1180px);
+  }
 
-justify-content:center;
+  .hero{
+    padding-top:28px;
+    gap:38px;
+  }
+
+  h1{
+    font-size:52px;
+  }
+
+  .subtitle{
+    font-size:18px;
+  }
+
+  .button{
+    width:100%;
+  }
+
+  .grid,
+  .challenge,
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .section{
+    padding:58px 0;
+  }
+
+  .hero-art::before,
+  .hero-art::after{
+    display:none;
+  }
 }
-
-}
-
 </style>
 </head>
 
 <body>
+<main class="container">
+  <section class="hero">
+    <div class="left">
+      <div class="badge">
+        <span class="badge-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        Relax - Collect - Challenge
+      </div>
 
-<div class="container">
+      <h1><span class="title-piece">Puzzle</span><br>Memories</h1>
 
-<section class="hero">
+      <p class="subtitle">
+        A beautiful jigsaw puzzle experience with handcrafted artwork, daily challenges,
+        collectible trophies and relaxing gameplay.
+      </p>
 
-<div class="left">
+      <div class="buttons">
+        <a class="button primary" href="#">Download on the App Store</a>
+        <a class="button secondary" href="support.html">Support</a>
+      </div>
+    </div>
 
-<div class="badge">
-🧩 Relax • Collect • Challenge
-</div>
+    <div class="hero-art" aria-label="Puzzle Memories app preview">
+      <div class="screenshot-frame">
+        <img src="https://raw.githubusercontent.com/puzzlememories/puzzle-support/main/puu3.jpg" alt="Puzzle Memories gameplay on iPhone">
+      </div>
+    </div>
+  </section>
 
-<h1>Puzzle<br>Memories</h1>
+  <section class="section">
+    <div class="section-title">
+      <h2>Why you'll love it</h2>
+      <p>Every screen is built around the feeling of assembling a collection, one satisfying piece at a time.</p>
+    </div>
 
-<p class="subtitle">
-A beautiful jigsaw puzzle experience with handcrafted artwork,
-daily challenges, collectible trophies and relaxing gameplay.
-</p>
+    <div class="grid">
+      <article class="card">
+        <div class="card-mark" aria-hidden="true"></div>
+        <h3>Hundreds of puzzles</h3>
+        <p>Beautiful handcrafted images with multiple difficulty levels for quick sessions or deeper play.</p>
+      </article>
 
-<div class="buttons">
+      <article class="card">
+        <div class="card-mark" aria-hidden="true"></div>
+        <h3>Daily challenges</h3>
+        <p>Return each day for fresh boards, themed packs and rewards that make progress feel visible.</p>
+      </article>
 
-<a class="button primary" href="#">
- Download on the App Store
-</a>
+      <article class="card">
+        <div class="card-mark" aria-hidden="true"></div>
+        <h3>Achievements</h3>
+        <p>Collect trophies, seals and milestones as your puzzle library grows over time.</p>
+      </article>
 
-<a class="button secondary" href="support.html">
-Support
-</a>
+      <article class="card">
+        <div class="card-mark" aria-hidden="true"></div>
+        <h3>Relaxing play</h3>
+        <p>No pressure when you want calm. Choose your mode and enjoy the rhythm of placing pieces.</p>
+      </article>
+    </div>
+  </section>
 
-</div>
+  <section class="section">
+    <div class="section-title">
+      <h2>Challenge leagues</h2>
+      <p>Move from relaxed boards to demanding leagues as your confidence grows.</p>
+    </div>
 
-</div>
+    <div class="challenge">
+      <article class="level">
+        <small class="stars">1 star</small>
+        <strong>Classic</strong>
+        25 relaxing puzzles
+      </article>
 
-<div class="right">
+      <article class="level">
+        <small class="stars">2 stars</small>
+        <strong>Expert</strong>
+        For experienced players
+      </article>
 
-<div class="phone">
+      <article class="level">
+        <small class="stars">3 stars</small>
+        <strong>Master</strong>
+        A true challenge
+      </article>
 
-<div class="screen">
+      <article class="level">
+        <small class="stars">4 stars</small>
+        <strong>Legend</strong>
+        Only the best succeed
+      </article>
 
-<div class="icon">
-🧩
-</div>
+      <article class="level">
+        <small class="stars">5 stars</small>
+        <strong>Impossible</strong>
+        Ultimate achievement
+      </article>
+    </div>
+  </section>
 
-<h2>Puzzle<br>Memories</h2>
+  <section class="section">
+    <div class="section-title">
+      <h2>Screenshots</h2>
+      <p>A quick look at the puzzle board, progression and collection moments.</p>
+    </div>
 
-<p>
-Coming Soon
-</p>
+    <div class="gallery">
+      <article class="shot">
+        <h3>Gameplay preview</h3>
+        <img class="shot-image" src="https://raw.githubusercontent.com/puzzlememories/puzzle-support/main/puu3.jpg" alt="Puzzle Memories gameplay preview">
+        <p>Pieces, progress and artwork stay clear at a glance.</p>
+      </article>
 
-</div>
+      <article class="shot">
+        <h3>Challenges</h3>
+        <img class="shot-image" src="https://raw.githubusercontent.com/puzzlememories/puzzle-support/main/puu3.jpg" alt="Puzzle Memories challenge preview">
+        <p>Daily goals and leagues give each puzzle a little extra spark.</p>
+      </article>
 
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 class="section-title">
-Why you'll love it
-</h2>
-
-<div class="grid">
-
-<div class="card">
-<span>🧩</span>
-<h3>Hundreds of puzzles</h3>
-<p>Beautiful handcrafted images with multiple difficulty levels.</p>
-</div>
-
-<div class="card">
-<span>🏆</span>
-<h3>Daily Challenges</h3>
-<p>Complete packs and unlock exclusive rewards.</p>
-</div>
-
-<div class="card">
-<span>⭐</span>
-<h3>Achievements</h3>
-<p>Collect trophies, seals and reach the highest league.</p>
-</div>
-
-<div class="card">
-<span>🌙</span>
-<h3>Relaxing</h3>
-<p>No timers. No pressure. Just pure puzzle fun.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 class="section-title">
-Challenge Leagues
-</h2>
-
-<div class="challenge">
-
-<div class="level">
-<strong>⭐ Classic</strong>
-25 relaxing puzzles
-</div>
-
-<div class="level">
-<strong>⭐⭐ Expert</strong>
-For experienced players
-</div>
-
-<div class="level">
-<strong>⭐⭐⭐ Master</strong>
-A true challenge
-</div>
-
-<div class="level">
-<strong>⭐⭐⭐⭐ Legend</strong>
-Only the best succeed
-</div>
-
-<div class="level">
-<strong>⭐⭐⭐⭐⭐ Impossible</strong>
-Ultimate achievement
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 class="section-title">
-Screenshots
-</h2>
-
-<div class="gallery">
-
-<div class="placeholder">
-📱
-Gameplay Preview
-</div>
-
-<div class="placeholder">
-🏆
-Challenges
-</div>
-
-<div class="placeholder">
-🧩
-Puzzle Collection
-</div>
-
-</div>
-
-</section>
+      <article class="shot">
+        <h3>Puzzle collection</h3>
+        <img class="shot-image" src="https://raw.githubusercontent.com/puzzlememories/puzzle-support/main/puu3.jpg" alt="Puzzle Memories collection preview">
+        <p>Completed packs become a library of memories to revisit.</p>
+      </article>
+    </div>
+  </section>
+</main>
 
 <footer>
-
-<p>
-© 2026 Puzzle Memories
-</p>
-
-<br>
-
-<a href="privacy.html">Privacy Policy</a>
-
-<a href="support.html">Support</a>
-
+  <p>© 2026 Puzzle Memories</p>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="support.html">Support</a>
 </footer>
-
-</div>
-
 </body>
 </html>
