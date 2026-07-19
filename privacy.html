@@ -1,187 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Puzzle Memories - Privacy Policy</title>
+<meta name="description" content="Privacy Policy for Puzzle Memories.">
 
 <style>
+:root{
+  --ink:#17202a;
+  --muted:#5d6874;
+  --paper:#fffaf0;
+  --panel:#ffffff;
+  --teal:#2f9f91;
+  --blue:#2f72d6;
+  --coral:#e9684a;
+  --amber:#f2b84b;
+  --line:rgba(23,32,42,.12);
+  --shadow:0 18px 44px rgba(23,32,42,.09);
+}
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-background:#f5f7fb;
-color:#222;
-line-height:1.7;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  background:
+    linear-gradient(90deg,rgba(23,32,42,.045) 1px,transparent 1px),
+    linear-gradient(0deg,rgba(23,32,42,.045) 1px,transparent 1px),
+    radial-gradient(circle at 12% 4%,rgba(242,184,75,.22),transparent 28%),
+    radial-gradient(circle at 86% 12%,rgba(47,159,145,.18),transparent 30%),
+    linear-gradient(180deg,var(--paper),#eef6f3 62%,#fffaf0);
+  background-size:84px 84px,84px 84px,auto,auto,auto;
+  color:var(--ink);
+  line-height:1.7;
+}
+
+a{
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:800;
 }
 
 .container{
-max-width:900px;
-margin:auto;
-padding:60px 25px;
+  width:min(900px,calc(100% - 40px));
+  margin:auto;
+  padding:64px 0;
 }
 
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(255,255,255,.72);
+  color:#31404d;
+  font-size:14px;
+  font-weight:850;
+  box-shadow:0 10px 24px rgba(23,32,42,.08);
+}
+
+.badge-mark{
+  width:18px;
+  height:18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:2px;
+}
+
+.badge-mark i{
+  display:block;
+  border-radius:3px;
+}
+
+.badge-mark i:nth-child(1){background:var(--teal);}
+.badge-mark i:nth-child(2){background:var(--amber);}
+.badge-mark i:nth-child(3){background:var(--coral);}
+.badge-mark i:nth-child(4){background:var(--blue);}
+
 h1{
-font-size:56px;
-font-weight:900;
-margin-bottom:15px;
+  margin-top:28px;
+  font-size:clamp(42px,7vw,68px);
+  line-height:1;
+  font-weight:950;
+  letter-spacing:0;
 }
 
 .subtitle{
-color:#666;
-margin-bottom:50px;
-font-size:20px;
+  margin-top:18px;
+  margin-bottom:38px;
+  color:var(--muted);
+  font-size:19px;
 }
 
 .card{
-background:white;
-padding:35px;
-border-radius:24px;
-margin-bottom:30px;
-box-shadow:0 12px 30px rgba(0,0,0,.08);
+  background:rgba(255,255,255,.82);
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  margin-bottom:18px;
+  box-shadow:var(--shadow);
 }
 
 .card h2{
-margin-bottom:18px;
-font-size:28px;
+  margin-bottom:12px;
+  font-size:26px;
+  line-height:1.15;
 }
 
 .card p{
-color:#555;
+  color:var(--muted);
 }
 
 ul{
-margin-top:15px;
-padding-left:22px;
+  margin-top:14px;
+  padding-left:22px;
+  color:var(--muted);
 }
 
 li{
-margin-bottom:10px;
+  margin-bottom:8px;
+}
+
+.notice{
+  border-left:5px solid var(--teal);
 }
 
 footer{
-text-align:center;
-padding:50px;
-color:#777;
+  width:min(900px,calc(100% - 40px));
+  margin:auto;
+  padding:0 0 64px;
+  text-align:center;
+  color:var(--muted);
 }
 
 footer a{
-margin:0 15px;
-text-decoration:none;
-color:#007AFF;
+  display:inline-flex;
+  margin:0 10px;
 }
 
-</style>
+@media(max-width:620px){
+  .container{
+    width:min(100% - 24px,900px);
+    padding:40px 0;
+  }
 
+  .card{
+    padding:22px;
+  }
+}
+</style>
 </head>
 
 <body>
+<main class="container">
+  <div class="badge">
+    <span class="badge-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    Puzzle Memories
+  </div>
 
-<div class="container">
+  <h1>Privacy Policy</h1>
 
-<h1>Privacy Policy</h1>
+  <p class="subtitle">Last updated: July 19, 2026</p>
 
-<p class="subtitle">
-Last updated: July 2026
-</p>
+  <section class="card notice">
+    <h2>Your privacy</h2>
+    <p>
+      Puzzle Memories is designed to respect your privacy. The app does not require an account and does not collect your name,
+      email address, phone number, contacts, photos, advertising identifier or precise location.
+    </p>
+  </section>
 
-<div class="card">
+  <section class="card">
+    <h2>Data stored on your device</h2>
+    <p>
+      Puzzle Memories stores game data locally so the app can remember your progress and preferences.
+    </p>
+    <ul>
+      <li>Completed puzzles, scores, trophies, level, XP, coins and unlocked content</li>
+      <li>Game settings, language preference and appearance settings</li>
+      <li>A random local player ID used as a technical identifier</li>
+      <li>An optional in-game display name if you choose one</li>
+    </ul>
+  </section>
 
-<h2>Your Privacy</h2>
+  <section class="card">
+    <h2>Gameplay analytics</h2>
+    <p>
+      To improve balance, performance and content quality, Puzzle Memories may send pseudonymous gameplay statistics to a
+      server operated for the app. These statistics are not used for advertising or tracking across other apps or websites.
+    </p>
+    <ul>
+      <li>Random player ID and session ID</li>
+      <li>App version, operating system and general device type</li>
+      <li>Game mode, difficulty, piece count, pack/category/puzzle identifiers</li>
+      <li>Completion or abandonment, duration, moves, hints, previews, bonuses and penalties</li>
+      <li>Approximate time since install and total play count</li>
+    </ul>
+  </section>
 
-<p>
-Puzzle Memories is designed to respect your privacy.
-We do not collect personal information such as your name, email address,
-phone number or precise location.
-</p>
+  <section class="card">
+    <h2>iCloud and CloudKit</h2>
+    <p>
+      If iCloud is available on your device, Puzzle Memories may use Apple CloudKit private database storage to sync purchase
+      entitlements and in-game economy state, such as unlocked content and choice credits, across your own devices.
+    </p>
+  </section>
 
-</div>
+  <section class="card">
+    <h2>Downloads and remote content</h2>
+    <p>
+      The app may download puzzle packs, daily puzzle assets and remote catalog files from hosted storage services. These
+      requests are used to deliver game content and keep the app catalog up to date.
+    </p>
+  </section>
 
-<div class="card">
+  <section class="card">
+    <h2>Purchases</h2>
+    <p>
+      If you purchase premium content, coins or subscriptions, payment processing is handled securely by Apple through the
+      App Store. Puzzle Memories does not receive or store your payment card information.
+    </p>
+  </section>
 
-<h2>Anonymous Analytics</h2>
+  <section class="card">
+    <h2>Data sharing</h2>
+    <p>
+      Puzzle Memories does not sell your personal information. Pseudonymous analytics and remote content requests may be
+      processed by service providers solely to operate and improve the app.
+    </p>
+  </section>
 
-<p>
-To improve the game experience, Puzzle Memories may collect anonymous usage statistics.
-These statistics cannot be used to identify you personally.
-</p>
+  <section class="card">
+    <h2>Children</h2>
+    <p>
+      Puzzle Memories is not intended to knowingly collect personal information from children. If you believe a child has
+      provided personal information, please contact us so we can review and delete it where appropriate.
+    </p>
+  </section>
 
-<ul>
-
-<li>Total play time</li>
-<li>Completed puzzles</li>
-<li>Challenge progression</li>
-<li>Game performance and crash reports</li>
-<li>General gameplay statistics</li>
-
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>Purchases</h2>
-
-<p>
-If you purchase premium content or subscriptions,
-all payment processing is handled securely by Apple through the App Store.
-We do not receive or store your payment information.
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>Data Sharing</h2>
-
-<p>
-We do not sell, rent or share your personal information with third parties.
-Anonymous analytics may be processed by trusted service providers solely to improve the application.
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>Children</h2>
-
-<p>
-Puzzle Memories is not intended to collect personal information from children.
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>Contact</h2>
-
-<p>
-If you have any questions regarding this Privacy Policy,
-please contact us at:
-</p>
-
-<p style="margin-top:20px;font-weight:bold;">
-laurent43800@gmail.com
-</p>
-
-</div>
-
-</div>
+  <section class="card">
+    <h2>Contact</h2>
+    <p>
+      If you have any questions about this Privacy Policy or want to request deletion of data associated with your random
+      player ID, contact us at:
+    </p>
+    <p style="margin-top:16px;font-weight:900;color:var(--ink);">laurent43800@gmail.com</p>
+  </section>
+</main>
 
 <footer>
-
-<a href="index.html">Home</a>
-
-<a href="support.html">Support</a>
-
+  <a href="index.html">Home</a>
+  <a href="support.html">Support</a>
 </footer>
-
 </body>
 </html>
